@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <!-- <ba-card cardTitle="Dashboard"></ba-card> -->
+    <h1 style="margin-top: 20px; font-size: 27px;">DASHBOARD</h1>
+
+    <div class="row col-md-12" style="margin-top: 15%; display: flex; justify-content: center; align-items: center;">
+        <div class="col-md-2 col-sm-4 col-xs-12 widget" style="padding: 0; margin-right: 3%; margin-top: 3%;">
+            <div class="widget-head">Media Management</div>
+            <div class="widget-body">
+                <div class="col-md-12">
+                    <i class="fa fa-youtube-play widget-icon" aria-hidden="true"></i>
+                    <span class="fa widget-text">{{videoCount}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-4 col-xs-12 widget" style="padding: 0; margin-right: 3%; margin-top: 3%;">
+            <div class="widget-head">Processed Videos</div>
+            <div class="widget-body">
+                <div class="col-md-12">
+                    <i class="fa fa-video-camera widget-icon" aria-hidden="true"></i>
+                    <span class="fa widget-text">{{videoCount}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-4 col-xs-12 widget" style="padding: 0; margin-right: 3%; margin-top: 3%;" (click)="navigateTOReports()">
+            <div class="widget-head">Reports</div>
+            <div class="widget-body">
+                <div class="col-md-12">
+                    <i class="fa fa-file widget-icon" aria-hidden="true"></i>
+                    <span class="fa widget-text">{{videoCount}}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4 col-xs-12 widget" style="padding: 0; margin-right: 3%; margin-top: 3%;">
+            <div class="widget-head">Users</div>
+            <div class="widget-body">
+                <div class="col-md-12">
+                    <i class="fa fa-users widget-icon" aria-hidden="true"></i>
+                    <span class="fa widget-text">{{userCount}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

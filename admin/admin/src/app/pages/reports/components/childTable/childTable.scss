@@ -1,0 +1,181 @@
+
+@import "../../../../theme/sass/conf/conf";
+
+#myModal .modal-dialog {
+    max-width: 30% ;
+    max-height: 40% ;
+    margin-top: 15%;
+  }
+  
+  #myModal .modal-body {
+    padding: 26px 18px 35px 24px; 
+    position:static;
+}
+
+ #myModal1  .modal-dialog {
+    max-width: 30% ;
+    max-height: 40% ;
+    margin-top: 10%;
+ }
+ #myModal1 .modal-body {
+    padding: 45px 34px 45px 36px;
+    position:static;
+}
+ .close{
+    right: 0px !important;
+    position: absolute;
+    color: black;
+    right: 85px;
+    padding-right: 18px;
+    padding-top: 32px;
+    font-size: 26px;
+ }
+
+
+ th, td {
+    border: 1px solid $border-light !important;
+    line-height: 35px;
+    vertical-align: middle;
+    text-align:center;
+  
+  }
+  
+  table tr td {
+    padding: 0 8px;
+    text-align:center;
+  }
+  thead{
+   font-size: 16px !important;
+   background-color: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  tr:nth-child(odd){
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.2) !important;
+  } 
+
+.custom-button{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 40px;
+  margin: 20px 0;
+  cursor: pointer
+}
+
+
+@media (min-width: 768px) {
+
+    /* show 3 items */
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+        display: block;
+    }
+    
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+        transition: none;
+    }
+    
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+      position: relative;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -25%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+
+}
+
+ /* Bootstrap Lightbox using Modal */
+
+#profile-grid { overflow: auto; white-space: normal; } 
+#profile-grid .profile { padding-bottom: 40px; }
+#profile-grid .panel { padding: 0 }
+#profile-grid .panel-body { padding: 15px }
+#profile-grid .profile-name { font-weight: bold; }
+#profile-grid .thumbnail {margin-bottom:6px;}
+#profile-grid .panel-thumbnail { overflow: hidden; }
+#profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
+
+
+.highlight{
+  border: 2px solid #fff;
+}
+
+.highlight-table{
+  border: 2px solid #fff;
+}
+
+.sliderHide{
+  visibility: hidden;
+}
+
+
+#myModal .modal-dialog {
+  max-width: 38% ;
+  margin-top: 10%;
+}
+#myModal .modal-header {
+padding:30px 0 0 0;
+}
+
+#myModal .modal-content {
+  height: 550px;
+  width: 850px; 
+}
+
+#myModal .modal-body {
+  padding: 3px 24px 0 23px;
+}
+
+.close{
+  right: -11px !important;
+  top: -29px !important;
+}

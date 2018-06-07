@@ -1,0 +1,290 @@
+
+
+@import "../../../../theme/sass/conf/conf";
+
+progress {width:100%;height:7px}
+progress::-webkit-progress-bar{ background-color:transparent !important; }
+progress::-webkit-progress-value { background-color:#025a88 !important;  }
+
+.custom-dropdown{
+  width: 220px;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  height: calc(2.25rem + 1px);
+  line-height: 1.25;
+  padding: 0.5rem 0.75rem;
+  text-align: right !important;
+}
+.custom-dropdown:hover{
+  transform: none !important;
+  
+}
+
+.small {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.3;
+  color: #292b2c;
+  background-color: #fff;
+  height:20px !important;
+}
+
+
+// .small span:hover{
+//   background-color: #1E90FF;
+// }
+.small span:checked{
+  background-color: #1E90FF;
+}
+.dropdown-menu{
+  width:100%;
+}
+
+
+
+:host /deep/ .widgets {
+  .smart-table-container {
+    width:80%;
+    margin-top:45px !important ;
+    margin-left:20px !important;
+    
+  }
+}
+
+/deep/
+.al-content {
+    padding: 0 0 0 0 ;
+  }
+
+
+
+:host /deep/ {
+
+
+
+  ng2-smart-table {
+
+   
+   
+    th, td {
+      border: 1px solid $border-light !important;
+      line-height: 35px;
+      vertical-align: middle;
+      text-align:center;
+      
+    
+    }
+    th{
+      background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+
+    tr:nth-child(odd){
+      background-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    tr:nth-child(even){
+      background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    
+
+    table tr td {
+      padding: 0 8px;
+      text-align:center;
+    }
+
+    color: $default-text;
+
+    input {
+      text-align:center;      
+      line-height: 1.5 !important;
+     
+    }
+
+    ng2-smart-table-cell {
+      color: $default-text;
+      line-height: 35px;
+     
+    }
+
+    tbody {
+      tr {
+        color: $default-text;
+        // background-color: red !important;
+      }
+      tr:hover {
+        background: rgba(0, 0, 0, 0.03);
+      }
+    }
+
+    a.ng2-smart-sort-link {
+      font-size: 16px !important;
+      color: $default-text;
+      font-weight: $font-bolder;
+      &.sort {
+        font-weight: $font-bolder !important;
+
+        &::after {
+          border-bottom-color: $default-text !important;
+        }
+      }
+    }
+
+    .ng2-smart-actions {
+      width: 70px;
+      text-align: center;
+      .actions {
+        float: none;
+        text-align: center;
+      }
+    }
+
+    .ng2-smart-actions-title-add {
+      text-align: center;
+    }
+
+    a.ng2-smart-action, .ng2-smart-title {
+      font-size: 16px !important;
+      color: $default-text;
+      padding: 0 5px;
+      display: inline-block;
+
+      &.ng2-smart-action-add-add {
+        font-size: 25px !important;
+      }
+    }
+
+    nav.ng2-smart-pagination-nav {
+      display: flex;
+      justify-content: center;
+    }
+  }
+    .card-body{
+      padding: 0 0 0 0 !important;
+    }
+    .card-title{
+      font-size: 20px !important;
+    }
+ }
+
+
+.form-inline > * {
+    margin:25px 10px;
+}
+
+.form-group{
+padding-top: 15px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+/deep/
+.btn-primary {
+    background-color:#0077b5;
+}
+/deep/
+.al-content {
+    padding: 0 0 0 0 ;
+  }
+
+
+  #myModal .modal-dialog {
+    max-width: 30% ;
+    max-height: 40% ;
+    margin-top: 15%;
+  }
+  
+  #myModal .modal-body {
+    padding: 26px 18px 35px 24px; 
+    position:static;
+}
+
+ #myModal1  .modal-dialog {
+    max-width: 30% ;
+    max-height: 40% ;
+    margin-top: 10%;
+ }
+ #myModal1 .modal-body {
+    padding: 45px 34px 45px 36px;
+    position:static;
+}
+ .close{
+    right: 0px !important;
+    position: absolute;
+    color: black;
+    right: 85px;
+    padding-right: 18px;
+    padding-top: 32px;
+    font-size: 26px;
+ }
+
+ table, th, td {
+   
+  text-align: center;
+}
+ th{
+  font-size: 17px;
+}
+
+tbody tr td{
+  height: 45px;
+  vertical-align: middle;
+}
+
+
+ .select-profile {
+  float: right;
+  margin-right: 12px;
+  transition: all .15s ease-in-out;
+  padding: 0;
+  // width: 36px;
+  // height: 36px;
+  border: 0;
+  opacity: 1;
+  position: relative;
+  ul.select-dropdown:after {
+    bottom: 100%;
+    right: 0;
+    
+    border: solid;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #fff;
+    border-width: 10px;
+    margin-right: 28px;
+  }
+}
+
+
+.profile-dropdown li:hover{
+  background-color: #0077b5;
+
+}
+
+.btn.btn-info{
+  background-color: #0077b5 !important;
+  border-color: #0077b5 !important;
+}
+
+.input-group-btn{
+  background-color: #0077b5 !important;
+  border-color: #0077b5 !important;
+}
+
+
+.small{
+  height: 30px;
+  font-size: 15px;
+  // text-align: center;
+  padding-left: 5px;
+}
+.small:hover{
+  background-color: rgb(226, 231, 235);
+  color:rgb(34, 32, 32);
+  font-weight: 500;
+}
+
+

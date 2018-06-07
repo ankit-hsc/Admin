@@ -1,0 +1,42 @@
+<h1 style="margin-top: 20px; text-align: center;font-size: 27px;">UPLOAD VIDEO</h1>
+<div class="row">
+    <div class="col-md-12">
+        <ba-card>
+            <div *ngIf="showProgress">
+                <progress class="progress progress-bar" value="0" max="100" data-percentage="90"> </progress>
+            </div>
+            <form class="form-inline justify-content-center">
+                <div class="form-group">
+                    <ba-file-uploader (fileEvent)="receiveFile($event)"></ba-file-uploader>
+                </div>
+
+                <div class="dropdown select-profile ">
+                    <button type="button" class="btn btn-primary dropdown-toggle custom-dropdown" data-toggle="dropdown">
+                        <span style="float:left;">{{selectedText[0] || ''}}</span>
+                    </button>
+                    <ul class="dropdown-menu select-dropdown">
+                        <li class="small" *ngFor="let x of selectOptions">
+                            <a>
+                                <input type="checkbox" [checked]="x.selected" (change)="selectChanged($event,x)" />
+                                <span>&nbsp;{{x.name}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="btn btn-primary" (click)="onFileSelected()">Upload & Generate Report</button>
+            </form>
+
+
+
+
+        </ba-card>
+    </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="showReportTable" style="height:60vh; overflow:auto;margin-top:60px;">
+    <div class="jumbotron" style="margin-bottom: 0px;padding:24px;;background-color: #0a4d6f;font-size: 24px;text-align: center;">Report</div>
+    <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="rowSelect($event);" (deleteConfirm)="onDeleteConfirm($event)"
+        (custom)="onCustom($event)"></ng2-smart-table>
+</div>
