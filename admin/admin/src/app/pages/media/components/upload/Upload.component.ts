@@ -248,7 +248,7 @@ export class Upload implements OnInit {
             .css("width", current_progress + "%")
             .attr("aria-valuenow", current_progress)
             .text(current_progress + "%");
-          if (current_progress >= 100)
+          if (current_progress >= 90)
             clearInterval(interval);
         },666);
       });

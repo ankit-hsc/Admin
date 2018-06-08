@@ -1,5 +1,5 @@
 <div class="row col-md-12 text-center" style="margin-top: 20px; margin-bottom: 20px;">
-    <h1>REPORT: {{tableData.videoFileName}}</h1>
+        <h1>REPORT: <span style="font-size:25px;">{{tableData.videoFileName}}</span></h1>
     <h5>Date Uploaded: {{tableData.uploadTime | date:'medium'}}</h5>
 </div>
 
@@ -50,8 +50,8 @@
         </div>
    
 
-    <div class="row col-md-12" style="margin-top: 5%">
-        <div class="col-md-6">
+    <div class="row col-md-12" style="margin-top: 3%">
+        <div class="col-md-6" style="overflow-y:scroll;height:310px !important;">
             <table id="infraction-table" class="table table-striped table-bordered justify-content-center">
                 <thead>
                     <tr>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="col-md-6 text-center">
-            <video id="video-tab"  height="320" controls style=" object-fit: fill;max-width:100%;">
+            <video id="video-tab"  height="300" controls style=" object-fit: fill;max-width:100%;">
                 <source src="assets/{{token}}.mkv">
             </video>
         </div>
