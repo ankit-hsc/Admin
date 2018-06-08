@@ -41,7 +41,7 @@ export class Upload implements OnInit {
 
   selectOptions = [
     { name: 'All', selected: false },
-    { name: 'Pedestrian Detection', selected: false },
+    { name: 'Pedestrian Obstruction', selected: false },
     { name: 'Red Light Violation', selected: false },
     { name: 'Traffic Density Analysis', selected: false }
   ];
@@ -105,7 +105,7 @@ export class Upload implements OnInit {
         width: '20%'
       },
       infractionsCount: {
-        title: 'Infractions',
+        title: 'No of Detections',
         filter: false,
         width: '10%'
       },
@@ -237,46 +237,32 @@ export class Upload implements OnInit {
     if (this.file != undefined && this.selectedFields != undefined && this.selectedFields.length > 0) {
       this.showReportTable = false;
       this.showProgress = true;
-
-      setTimeout(function () {
-        $('.progress').each(function () {
-          let me = $(this);
-          let perc = parseInt(me.attr("data-percentage"));
-          let current_perc = 0;
-
-          this.progress = setInterval(function () {
-            if (current_perc >= perc) {
-              clearInterval(this.progress);
-            } else {
-              current_perc += 1;
-              me.attr("value", current_perc);
-            }
-
-          },777);
-
-        });
-      }, 777);
+      let interval: any;
 
 
+      $(function () {
+        var current_progress = 0;
+        interval = setInterval(function () {
+          current_progress += 1;
+          $("#dynamic")
+            .css("width", current_progress + "%")
+            .attr("aria-valuenow", current_progress)
+            .text(current_progress + "%");
+          if (current_progress >= 100)
+            clearInterval(interval);
+        },666);
+      });
 
       this.mediaService.report(this.file, this.selectedFields).subscribe((data) => {
         this.source.load(data);
-        // this.token = data.tokenNo;
-        // this.detectionType = data.detectionType;
-        // this.tableData = data.imageVOList;
-        // this.fileName = data.videoFileName;
+        $("#dynamic").css("width", 100 + "%").attr("aria-valuenow", 100).text(100 + "%");
 
-
-        $('.progress').each(function () {
-          clearInterval(this.progress);
-          let me = $(this);
-          me.attr("value", 100);
-        });
         let tempThis = this;
         setTimeout(function () {
+          clearInterval(interval);
           tempThis.showReportTable = true;
           tempThis.showProgress = false;
-        }, 500);
+        }, 250);
 
       }, err => {
         console.log(JSON.stringify(err));

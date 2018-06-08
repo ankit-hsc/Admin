@@ -2,27 +2,6 @@
 @import "../../../../theme/sass/conf/conf";
 
 
-#myModal .modal-dialog {
-  max-width: 38% ;
-  margin-top: 10%;
-}
-#myModal .modal-header {
-padding:30px 0 0 0;
-}
-
-#myModal .modal-content {
-  height: 550px;
-  width: 850px; 
-}
-
-#myModal .modal-body {
-  padding: 3px 24px 0 23px;
-}
-
-.close{
-  right: -11px !important;
-  top: -29px !important;
-}
 
 
  th, td {
@@ -152,25 +131,32 @@ padding:30px 0 0 0;
 }
 
 
-
 #myModal .modal-dialog {
   max-width: 38% ;
   margin-top: 10%;
 }
 #myModal .modal-header {
-padding:30px 0 0 0;
-}
+  padding:30px 0 0 0;
+  }
+  
+  #myModal .modal-content {
+    height: 550px;
+    width: 850px; 
+  }
+  
+  #myModal .modal-body {
+    padding: 3px 24px 0 23px;
+  }
 
-#myModal .modal-content {
-  height: 550px;
-  width: 850px; 
-}
+ .close{
+    right: 0px !important;
+    position: absolute;
+    color: black;    
+    padding-right: 18px;
+    padding-top: 32px;
+    font-size: 26px;
+    right: -11px !important;
+    top: -29px !important;
+ }
 
-#myModal .modal-body {
-  padding: 3px 24px 0 23px;
-}
-
-.close{
-  right: -11px !important;
-  top: -29px !important;
-}
+ 

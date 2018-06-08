@@ -28,7 +28,7 @@ export class MasterTable implements OnInit {
   private toDate: string;
   selectOptions = [
     { name: 'All', selected: false },
-    { name: 'Pedestrian Detection', selected: false },
+    { name: 'Pedestrian Obstruction', selected: false },
     { name: 'Red Light Violation', selected: false },
     { name: 'Traffic Density Analysis', selected: false }
   ];
@@ -123,7 +123,7 @@ export class MasterTable implements OnInit {
         width: '20%'
       },
       infractionsCount: {
-        title: 'Infractions',
+        title: 'No of detections',
         filter: false,
         width: '10%'
       },

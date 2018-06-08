@@ -2,9 +2,9 @@
 
 @import "../../../../theme/sass/conf/conf";
 
-progress {width:100%;height:7px}
-progress::-webkit-progress-bar{ background-color:transparent !important; }
-progress::-webkit-progress-value { background-color:#025a88 !important;  }
+.progress{
+  background-color: #fff; 
+}
 
 .custom-dropdown{
   width: 220px;
