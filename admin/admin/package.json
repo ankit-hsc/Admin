@@ -17,7 +17,7 @@
     "rimraf": "rimraf",
     "wintersmith": "wintersmith",
     "changelog": "standard-changelog",
-    "start": "ng serve",
+    "start": "ng serve --ssl 1 --ssl-key "ssl\server.key" --ssl-cert "ssl\server.crt"",
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "start:prod": "ng serve --prod",

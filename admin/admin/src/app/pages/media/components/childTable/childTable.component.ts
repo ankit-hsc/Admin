@@ -45,8 +45,10 @@ export class ChildTable implements OnInit {
           $('#nextSlider').addClass('sliderHide');
           $('#prevSlider').addClass('sliderHide');
         }
-        $('#prevSlider').addClass('sliderHide');
-        $('#nextSlider').removeClass('sliderHide');
+        else {
+          $('#prevSlider').addClass('sliderHide');
+          $('#nextSlider').removeClass('sliderHide');
+        }
       });
     }
     else {
