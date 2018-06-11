@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://10.11.26.71:8085/ML',
-  //apiUrl:'https://220.227.175.33:8443/ML',
+ // apiUrl: 'http://10.11.26.71:8085/ML',
+  apiUrl:'http://220.227.175.33:8443/ML',
 };
