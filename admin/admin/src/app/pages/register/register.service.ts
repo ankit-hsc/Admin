@@ -16,7 +16,7 @@ export class RegisterService {
     register(name: any, password: any) {
         let formData: FormData = new FormData();
         let user = { "username": name, "password": password };
-        return this._http.post(this.baseUrl + '/tensor/auth/register', user).map((response: Response) => response.text()
+        return this._http.post(this.baseUrl + '/analytics/auth/register', user).map((response: Response) => response.text()
         ).catch(this.errorHandler);
 
     }
