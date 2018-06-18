@@ -52,6 +52,9 @@ export class Upload implements OnInit {
 
   ngOnInit() {
 
+
+
+
     for (let i = 0; i < this.selectOptions.length; i++) {
       this.selectOptions[i].selected = true;
       this.selectedFields.push(this.selectOptions[i].name);

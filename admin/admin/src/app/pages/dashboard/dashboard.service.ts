@@ -20,7 +20,7 @@ export class DashboardService {
 
     getWidgetCount() {
  
-        return this._http.get(this.baseUrl + '/tensor/loadWidgetData', this.options).map((response: Response) => response.json()
+        return this._http.get(this.baseUrl + '/analytics/loadWidgetData', this.options).map((response: Response) => response.json()
             ).catch(this.errorHandler);
     }
 

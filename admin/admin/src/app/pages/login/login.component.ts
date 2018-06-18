@@ -31,7 +31,7 @@ export class Login {
 
   public onSubmit(values):void {
     this.submitted = true;
-  
+    this.router.navigate(['pages']);
     if (this.form.valid) {
       
       this.loginService.login(values.name, values.password).subscribe((response) => {

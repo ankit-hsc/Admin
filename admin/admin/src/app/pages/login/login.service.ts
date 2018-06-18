@@ -16,7 +16,7 @@ export class LoginService {
         let user = { "username": name, "password": password };
         let formData: FormData = new FormData();
 
-        return this._http.post(this.baseUrl + '/tensor/auth/login', user).map((response: Response) => {
+        return this._http.post(this.baseUrl + '/analytics/auth/login', user).map((response: Response) => {
             console.log(response);
             return response.json();
         }

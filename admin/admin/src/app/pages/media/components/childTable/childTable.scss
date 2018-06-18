@@ -3,6 +3,40 @@
 
 
 
+#chartdiv {
+	width	: 100% !important;
+	height	: 300px;
+}
+
+#myModal .modal-dialog {
+  max-width: 38% ;
+  margin-top: 10%;
+}
+#myModal .modal-header {
+  padding:30px 0 0 0;
+  }
+  
+  #myModal .modal-content {
+    height: 550px;
+    width: 850px; 
+  }
+  
+  #myModal .modal-body {
+    padding: 3px 24px 0 23px;
+  }
+
+ .close{
+    right: 0px !important;
+    position: absolute;
+    color: black;    
+    padding-right: 18px;
+    padding-top: 32px;
+    font-size: 26px;
+    right: -11px !important;
+    top: -29px !important;
+ }
+
+
 
  th, td {
     border: 1px solid $border-light !important;
@@ -38,6 +72,7 @@
 
 
 @media (min-width: 768px) {
+ 
 
     /* show 3 items */
     .carousel-inner .active,
@@ -45,6 +80,7 @@
     .carousel-inner .active + .carousel-item + .carousel-item,
     .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
         display: block;
+       
     }
     
     .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
@@ -58,6 +94,7 @@
     .carousel-inner .carousel-item-prev {
       position: relative;
       transform: translate3d(0, 0, 0);
+      
     }
     
     .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
@@ -100,7 +137,9 @@
         transform: translate3d(100%, 0, 0);
         visibility: visible;
         display: block;
-        visibility: visible;
+        visibility: visible;  
+        
+        
     }
 
 }
@@ -117,7 +156,6 @@
 #profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
 
 
-
 .highlight{
   border: 2px solid #fff;
 }
@@ -131,32 +169,4 @@
 }
 
 
-#myModal .modal-dialog {
-  max-width: 38% ;
-  margin-top: 10%;
-}
-#myModal .modal-header {
-  padding:30px 0 0 0;
-  }
-  
-  #myModal .modal-content {
-    height: 550px;
-    width: 850px; 
-  }
-  
-  #myModal .modal-body {
-    padding: 3px 24px 0 23px;
-  }
 
- .close{
-    right: 0px !important;
-    position: absolute;
-    color: black;    
-    padding-right: 18px;
-    padding-top: 32px;
-    font-size: 26px;
-    right: -11px !important;
-    top: -29px !important;
- }
-
- 

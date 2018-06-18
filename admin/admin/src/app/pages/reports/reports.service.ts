@@ -18,7 +18,7 @@ export class ReportsService {
 
     getReports(selectedFields, condition, infractionCount, fromDate, toDate) {
         // return this._http.get(this.baseUrl+'/tensor/getAllReports').map((response:Response)=>response.json()
-        return this._http.get(this.baseUrl + '/tensor/getAllReports?detectionType=' + selectedFields + '&countFilter=' + condition + '&infractionCount=' + infractionCount
+        return this._http.get(this.baseUrl + '/analytics/getAllReports?detectionType=' + selectedFields + '&countFilter=' + condition + '&infractionCount=' + infractionCount
             + '&fromDate=' + fromDate + '&toDate=' + toDate, this.options).map((response: Response) => response.json()
             ).catch(this.errorHandler);
     }

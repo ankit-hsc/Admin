@@ -21,7 +21,7 @@ export class MediaService{
         let formData:FormData= new FormData();
         formData.append('file',file,file.name);
         
-        return this._http.post(this.baseUrl+'/tensor/videoProcessing?ml='+ml,formData,this.options).map((response:Response)=>{
+        return this._http.post(this.baseUrl+'/analytics/videoProcessing?ml='+ml,formData,this.options).map((response:Response)=>{
             console.log(response);
            return  response.json();
         }
@@ -31,7 +31,7 @@ export class MediaService{
 
     getAllReports(){
         // return this._http.get(this.baseUrl+'/tensor/getAllReports').map((response:Response)=>response.json()
-        return this._http.get(this.baseUrl+'/tensor/getAllReports',this.options).map((response:Response)=>response.json()
+        return this._http.get(this.baseUrl+'/analytics/getAllReports',this.options).map((response:Response)=>response.json()
        ).catch(this.errorHandler);
        }
 
