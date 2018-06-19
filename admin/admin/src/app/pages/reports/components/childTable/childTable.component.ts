@@ -114,7 +114,7 @@ export class ChildTable implements OnInit {
       },
       "categoryField": "date",
       "categoryAxis": {
-        "title": "Frame Timestamp",
+        "title": "Video Timestamp",
         "minPeriod": "ss",
         "parseDates": true
       },
