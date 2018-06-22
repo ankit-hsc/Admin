@@ -61,6 +61,7 @@
                             <tr>
                                 <th>Detections</th>
                                 <th>Time</th>
+                                <th *ngIf="showColumn">Number Plate</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -68,6 +69,7 @@
                             <tr *ngFor="let data of frameData; let k = index" [class.highlight-table]="k==0" (click)="highlightTable(data,k)">
                                 <td>{{detectionType}}</td>
                                 <td>{{data.frameTimeStamp}}</td>
+                                <td *ngIf="showColumn">{{data.framesList[0].object}}</td>
                                 <td>
                                     <i class="fa fa-play-circle" title="Play Video" aria-hidden="true" style="cursor: pointer;" (click)="highlightTable(data,k)"></i>
                                     <i class="fa fa-eye" title="View Report" aria-hidden="true" style="margin-left: 5px; cursor: pointer;" (click)="highlightTable(data,k)"></i>

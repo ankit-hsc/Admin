@@ -26,6 +26,7 @@ export class ChildTable implements OnInit {
   modalImage: string;
   isSingleClick: Boolean = true;
   showModal: boolean = false;
+  showColumn: boolean = false;
   chart:any;
   chartData:any;
 
@@ -44,6 +45,7 @@ export class ChildTable implements OnInit {
       this.tableData = this.mediaService.getter();
       this.token = this.tableData.tokenNo;
       this.detectionType = this.tableData.detectionType;
+      
       this.frameData = this.tableData.imageVOList;
       this.frameData.forEach(element => {
         let obj: any = {};
@@ -65,7 +67,11 @@ export class ChildTable implements OnInit {
       
       }
       else {
-        this.showTable = true;
+        
+        if (this.detectionType == 'License Plate Recognition') {
+          this.showColumn = true;     
+          }
+          this.showTable = true;
       }
     }
     else {
@@ -162,9 +168,6 @@ export class ChildTable implements OnInit {
          return chartData;
     }
   }
-
-
-
 
 
 

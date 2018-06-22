@@ -43,7 +43,8 @@ export class Upload implements OnInit {
     { name: 'All', selected: false },
     { name: 'Pedestrian Obstruction', selected: false },
     { name: 'Red Light Violation', selected: false },
-    { name: 'Traffic Density Analysis', selected: false }
+    { name: 'Traffic Density Analysis', selected: false },
+    { name: 'License Plate Recognition', selected: false }
   ];
 
   constructor(private mediaService: MediaService, private router: Router) {

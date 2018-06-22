@@ -26,6 +26,7 @@ export class ChildTable implements OnInit {
   modalImage: string;
   isSingleClick: Boolean = true;
   showModal: boolean = false;
+  showColumn: boolean = false;
   chart:any;
   chartData:any;
 
@@ -65,7 +66,11 @@ export class ChildTable implements OnInit {
       
       }
       else {
-        this.showTable = true;
+       
+        if (this.detectionType == 'License Plate Recognition') {
+          this.showColumn = true;     
+          }
+          this.showTable = true;
       }
     }
     else {
