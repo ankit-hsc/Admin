@@ -17,11 +17,86 @@ export class MediaService{
     private data:any;
     constructor(private _http:Http) { }
 
-    report(file:File,ml:any){
-        let formData:FormData= new FormData();
-        formData.append('file',file,file.name);
+
+      
+      getFile(filename,fileExt,filetype,partnumbers){      
+        let  headers = new Headers({ 
+        'fileName': filename ,
+        'partNumbers': partnumbers}       
+      );
+      
+      let opt = new RequestOptions({headers:headers});     
+       return this._http.get(this.baseUrl+ "/upload/file/"+filename,opt).map((response:Response)=>response.json()
+      ).catch(this.errorHandler);
+      }
+      
+      onFileNotExist(filename){
+        let  headers = new Headers({ 
+            'content-type': 'text/plain',     
+            'fileName': filename,
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+         }              
+          );
+          
+          let opt = new RequestOptions({headers:headers});     
+           return this._http.post(this.baseUrl+ "/upload/files",{},opt).map((response:Response)=>response
+          ).catch(this.errorHandler);
+      }
+
+
+      updateUpload(part:any){
+       
+      
+       let  headers = new Headers({
+       
+        'fileName': part.fileName,
+        'partNumber': part.partNumber,
+        'uploadOffset': part.uploadOffset,
+        'uploadLength': part.uploadLength,
+        'fileSize': part.fileSize,
+        'userName': 'placeholder'}
+      );
+      let options = new RequestOptions({headers:headers});
+
+
+         // return this._http.post(this.baseUrl+'/tensor/videoProcessing?ml='+ml,formData).map((response:Response)=>response.json()
+          return this._http.patch(this.baseUrl+"/upload/file/"+part.fileName,part.file,options).map((response:Response)=>response.text()
+             ).catch(this.errorHandler);
+      }
+
+      mergeFile(fileName,fileExt,partNumbers,fileSize){
+
+        let  headers = new Headers({
+       
+            'fileName': fileName,
+            'fileExt': fileExt,
+            'partNumbers': partNumbers,
+            'fileSize': fileSize,
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache", 
+          }
+          );
+          let options = new RequestOptions({headers:headers});
+         return this._http.post(this.baseUrl+"/upload/files/complete",{},options).map((response:Response)=>response
+                 ).catch(this.errorHandler);
+      }
+
+
+    report(ml:any,token,fileName,fileExt){
+        // let formData:FormData= new FormData();
+        // formData.append('file',file,file.name);
+        let  headers = new Headers({   
+            'Authorization':localStorage.getItem("jwtToken") ,   
+            'ml': ml,
+            'token': token,
+            'fileName': fileName, 
+            'fileExt': fileExt          
+          }
+          );
+          let options = new RequestOptions({headers:headers});
         
-        return this._http.post(this.baseUrl+'/analytics/videoProcessing?ml='+ml,formData,this.options).map((response:Response)=>{
+        return this._http.post(this.baseUrl+'/analytics/videoProcessing',{},options).map((response:Response)=>{
             console.log(response);
            return  response.json();
         }

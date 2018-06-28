@@ -163,7 +163,7 @@ export class Upload implements OnInit {
     console.log(this.file);
   }
 
-
+  
 
 
 
@@ -238,6 +238,7 @@ export class Upload implements OnInit {
 
 
   onFileSelected() {
+
     if (this.file != undefined && this.selectedFields != undefined && this.selectedFields.length > 0) {
       this.showReportTable = false;
       this.showProgress = true;
@@ -254,23 +255,87 @@ export class Upload implements OnInit {
             .text(current_progress + "%");
           if (current_progress >= 99)
             clearInterval(interval);
-        },666);
+        }, 666);
       });
 
-      this.mediaService.report(this.file, this.selectedFields).subscribe((data) => {
-        this.source.load(data);
-        $("#dynamic").css("width", 100 + "%").attr("aria-valuenow", 100).text(100 + "%");
 
-        let tempThis = this;
-        setTimeout(function () {
-          clearInterval(interval);
-          tempThis.showReportTable = true;
-          tempThis.showProgress = false;
-        }, 250);
+      var capAtFilesize = function (value, fileSize) { return value > fileSize ? fileSize : value; };
 
-      }, err => {
-        console.log(JSON.stringify(err));
-      })
+      var createFileParts = function (file, fileName, fileExt, uploadOffset, uploadLength, partNumber, parts) {
+        var fileSize = file.size;
+        if (uploadOffset >= file.size)
+          return parts;
+        parts.push({
+          file: file.slice(uploadOffset, uploadLength + 1),
+          fileName: fileName,
+          fileExt: fileExt,
+          partNumber: partNumber,
+          partSize: capAtFilesize(uploadLength, fileSize) - capAtFilesize(uploadOffset, fileSize),
+          uploadOffset: capAtFilesize(uploadOffset, fileSize),
+          uploadLength: capAtFilesize(uploadLength, fileSize),
+          fileSize: fileSize
+        });
+        return createFileParts(file, fileName, fileExt, capAtFilesize(uploadOffset + PART_SIZE, fileSize), capAtFilesize(uploadLength + PART_SIZE, fileSize), partNumber + 1, parts);
+      };
+      let PART_SIZE = 5 * 1024 * 1024;
+      let FILENAME_PATTERN = /^(.+)\..*/;
+      let FILEEXT_PATTERN = /\.[0-9a-z]+$/i;
+
+      let fileName = FILENAME_PATTERN.exec(this.file.name)[1];
+      let fileExt = FILEEXT_PATTERN.exec(this.file.name)[0];
+      let parts = createFileParts(this.file, fileName, fileExt, 0, PART_SIZE, 0, []);
+      let partNumbers = parts.map(function (part) { return part.partNumber; });
+      console.log(parts);
+
+      this.mediaService.getFile(fileName, fileExt, this.file.type, partNumbers).subscribe((data) => {
+
+      }, (error) => {
+        console.log(error);
+        if (error._body == 'newUpload') {
+          this.mediaService.onFileNotExist(fileName).subscribe((value) => {
+            console.log(parts);
+            let count = 0;
+
+            parts.forEach(element => {
+
+              this.mediaService.updateUpload(element).subscribe((e) => {
+                count++;
+                if (count == parts.length) {
+                  this.mediaService.mergeFile(fileName, fileExt, partNumbers, this.file.size).subscribe((e) => {
+                    console.log(e);
+                    this.mediaService.report(this.selectedFields,e._body,fileName,fileExt).subscribe((data) => {
+                      this.source.load(data);
+                      $("#dynamic").css("width", 100 + "%").attr("aria-valuenow", 100).text(100 + "%");
+
+                      let tempThis = this;
+                      setTimeout(function () {
+                        clearInterval(interval);
+                        tempThis.showReportTable = true;
+                        tempThis.showProgress = false;
+                      }, 250);
+
+                    }, err => {
+                      console.log(JSON.stringify(err));
+                    })
+                  }, (error) => {
+                    console.log(error);
+                  });
+                }
+              }, (error) => {
+                console.log(error);
+              });
+            });
+
+
+          }, (error) => {
+            console.log(error);
+          });
+        }
+
+      });
+
+
+
     }
     else {
       if (typeof this.file == "undefined") { alert("Please select video") }
